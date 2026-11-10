@@ -1,0 +1,508 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Mahbub Roujen, Portfolio</title>
+<style>
+/* Direction: a dark control-room of signal and infrastructure. Ink-navy surfaces, amber signal accent, mono for system data. */
+:root {
+  --bg: #f4f1ea;
+  --bg-2: #ebe6da;
+  --surface: rgba(255,255,255,.7);
+  --fg: #142030;
+  --muted: #5d6a7a;
+  --line: rgba(20,32,48,.14);
+  --accent: #b86a00;
+  --accent-2: #1d5c7a;
+  --glow: rgba(184,106,0,.18);
+  --display: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0c1420;
+    --bg-2: #101b2a;
+    --surface: rgba(255,255,255,.04);
+    --fg: #e7ecf2;
+    --muted: #8d9db0;
+    --line: rgba(231,236,242,.12);
+    --accent: #f2a93b;
+    --accent-2: #6fb8d9;
+    --glow: rgba(242,169,59,.16);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0c1420;
+  --bg-2: #101b2a;
+  --surface: rgba(255,255,255,.04);
+  --fg: #e7ecf2;
+  --muted: #8d9db0;
+  --line: rgba(231,236,242,.12);
+  --accent: #f2a93b;
+  --accent-2: #6fb8d9;
+  --glow: rgba(242,169,59,.16);
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { background: var(--bg); }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 64px;
+}
+h1, h2, h3 { margin: 0; text-wrap: balance; font-family: var(--display); }
+p { margin: 0; max-width: 62ch; }
+a { color: var(--accent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.wrap { max-width: 1040px; margin: 0 auto; }
+.eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+.mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+
+/* Nav */
+nav.top {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 14px 0; backdrop-filter: blur(10px);
+  background: color-mix(in srgb, var(--bg) 80%, transparent);
+  border-bottom: 1px solid var(--line);
+}
+nav .links { display: flex; gap: 18px; flex-wrap: wrap; font-size: 14px; }
+nav .links a { color: var(--muted); text-decoration: none; }
+nav .links a:hover { color: var(--fg); }
+button.theme {
+  font: inherit; font-family: var(--mono); font-size: 12px; cursor: pointer;
+  color: var(--fg); background: var(--surface); border: 1px solid var(--line);
+  border-radius: 999px; padding: 6px 12px;
+}
+
+/* Hero */
+.hero { position: relative; min-height: 88vh; display: grid; align-items: center; overflow: hidden; isolation: isolate; }
+#net { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -2; }
+.spot {
+  position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: radial-gradient(520px circle at var(--mx, 70%) var(--my, 30%), var(--glow), transparent 60%);
+}
+.hero h1 { font-size: clamp(2.6rem, 8vw, 5.6rem); line-height: 1.02; letter-spacing: -.03em; font-weight: 600; }
+.hero h1 .word { display: inline-block; opacity: 0; transform: translateY(40px); animation: rise .9s cubic-bezier(.2,.7,.2,1) forwards; }
+.hero h1 .word:nth-child(2) { animation-delay: .12s; }
+@keyframes rise { to { opacity: 1; transform: none; } }
+.role-line { margin-top: 22px; font-size: clamp(1.1rem, 2.6vw, 1.5rem); color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px; align-items: baseline; }
+.role-line .cycle { color: var(--accent); font-family: var(--display); font-weight: 500; min-width: 14ch; }
+.caret { display: inline-block; width: 2px; height: 1.1em; background: var(--accent); margin-left: 2px; animation: blink 1s steps(2) infinite; vertical-align: -.15em; }
+@keyframes blink { 50% { opacity: 0; } }
+.hero .sub { margin-top: 24px; font-size: 1.05rem; color: var(--muted); max-width: 58ch; }
+.cta { display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-weight: 500;
+  padding: 12px 20px; border-radius: 999px; border: 1px solid var(--line); color: var(--fg); background: var(--surface);
+  transition: transform .2s, border-color .2s, background .2s;
+}
+.btn.primary { background: var(--accent); color: #0c1420; border-color: transparent; }
+.btn:hover { transform: translateY(-2px); border-color: var(--accent); }
+.scroll-cue { position: absolute; bottom: 22px; left: 0; font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.scroll-cue::after { content: ""; display: inline-block; width: 1px; height: 36px; background: var(--accent); margin-left: 10px; vertical-align: middle; transform-origin: top; animation: drip 1.8s ease-in-out infinite; }
+@keyframes drip { 0% { transform: scaleY(0); } 50% { transform: scaleY(1); } 100% { transform: scaleY(1); opacity: 0; } }
+
+/* Stats */
+.stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; margin-top: 8px; }
+@media (min-width: 720px) { .stats { grid-template-columns: repeat(4, 1fr); } }
+.stat { background: var(--bg); padding: 26px 22px; }
+.stat .num { font-family: var(--display); font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 600; color: var(--fg); }
+.stat .num em { font-style: normal; color: var(--accent); }
+.stat .lbl { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+section.block { padding-block: 84px 0; }
+.sec-head { display: flex; align-items: end; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 32px; }
+.sec-head h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 600; letter-spacing: -.02em; margin-top: 8px; }
+
+/* About */
+.about { display: grid; gap: 36px; grid-template-columns: 1fr; }
+@media (min-width: 820px) { .about { grid-template-columns: 1.2fr 1fr; } }
+.about .lead { font-size: 1.25rem; line-height: 1.5; color: var(--fg); }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; align-content: start; }
+.tag { font-family: var(--mono); font-size: 12px; padding: 6px 10px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); transition: border-color .2s, color .2s; }
+.tag:hover { border-color: var(--accent); color: var(--accent); }
+
+/* Experience timeline */
+.timeline { position: relative; display: grid; gap: 28px; padding-left: 28px; }
+.timeline::before { content: ""; position: absolute; left: 6px; top: 6px; bottom: 6px; width: 2px; background: var(--line); }
+.timeline .fill { position: absolute; left: 6px; top: 6px; width: 2px; height: calc(var(--p, 0) * 100%); background: linear-gradient(var(--accent), var(--accent-2)); transform-origin: top; }
+.job { position: relative; }
+.job::before { content: ""; position: absolute; left: -28px; top: 10px; width: 14px; height: 14px; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent); transform: translateX(-1px); box-shadow: 0 0 0 6px var(--glow); }
+.job .meta { font-family: var(--mono); font-size: 13px; color: var(--muted); }
+.job h3 { font-size: 1.5rem; font-weight: 600; margin-top: 6px; }
+.job .org { color: var(--accent-2); margin-top: 2px; }
+.groups { display: grid; gap: 14px; grid-template-columns: 1fr; margin-top: 22px; }
+@media (min-width: 720px) { .groups { grid-template-columns: 1fr 1fr; } }
+.card {
+  position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 22px;
+  transform-style: preserve-3d; transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform .25s ease, border-color .25s; min-width: 0;
+}
+.card:hover { border-color: color-mix(in srgb, var(--accent) 50%, var(--line)); }
+.card h4 { margin: 0 0 10px; font-family: var(--display); font-size: 1.05rem; font-weight: 600; }
+.card ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.card li { font-size: 14.5px; color: var(--muted); padding-left: 16px; position: relative; }
+.card li::before { content: ""; position: absolute; left: 0; top: .6em; width: 6px; height: 6px; border-radius: 2px; background: var(--accent); }
+.card .n { position: absolute; top: 18px; right: 20px; font-family: var(--mono); font-size: 12px; color: var(--muted); }
+
+/* Projects / marquee skills */
+.marquee { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
+.track { display: flex; gap: 14px; width: max-content; animation: slide 38s linear infinite; padding: 6px 0; }
+.marquee:hover .track { animation-play-state: paused; }
+.pill { font-family: var(--display); font-size: 1.15rem; padding: 12px 22px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); white-space: nowrap; }
+.pill.hot { border-color: var(--accent); color: var(--accent); }
+@keyframes slide { to { transform: translateX(-50%); } }
+
+/* Certs and edu */
+.grid2 { display: grid; gap: 14px; grid-template-columns: 1fr; }
+@media (min-width: 720px) { .grid2 { grid-template-columns: repeat(2, 1fr); } }
+.cert { display: flex; gap: 14px; align-items: flex-start; padding: 18px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface); transition: transform .2s; min-width: 0; }
+.cert:hover { transform: translateY(-3px); }
+.cert .badge { flex: none; width: 38px; height: 38px; border-radius: 10px; display: grid; place-items: center; background: var(--glow); color: var(--accent); font-family: var(--mono); font-size: 13px; font-weight: 600; }
+.cert strong { display: block; font-weight: 600; }
+.cert span { font-size: 14px; color: var(--muted); }
+.edu { border-left: 2px solid var(--line); padding-left: 20px; display: grid; gap: 22px; }
+.edu div { position: relative; }
+.edu div::before { content: ""; position: absolute; left: -26px; top: 7px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent-2); }
+.edu h3 { font-size: 1.15rem; font-weight: 600; }
+.edu .meta { font-family: var(--mono); font-size: 13px; color: var(--muted); }
+
+/* Reveal: visible at rest; JS adds motion only when available */
+.js .rv { opacity: 0; transform: translateY(26px); transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
+.js .rv.in { opacity: 1; transform: none; }
+
+footer { margin-top: 96px; border-top: 1px solid var(--line); padding-block: 28px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; color: var(--muted); font-size: 14px; }
+
+@media (max-width: 520px) { nav .links { display: none; } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .js .rv { opacity: 1; transform: none; }
+  .hero h1 .word { opacity: 1; transform: none; }
+}
+</style>
+
+<nav class="top wrap" aria-label="Main">
+  <span class="mono" style="font-size:14px">MR<span style="color:var(--accent)">/</span>portfolio</span>
+  <div class="links">
+    <a href="#about">About</a><a href="#work">Work</a><a href="#skills">Skills</a><a href="#certs">Certs</a><a href="#education">Education</a>
+  </div>
+  <button class="theme" id="themeBtn" aria-label="Toggle colour theme">theme</button>
+</nav>
+
+<header class="hero" id="top">
+  <canvas id="net" aria-hidden="true"></canvas>
+  <div class="spot" aria-hidden="true"></div>
+  <div class="wrap" style="padding-block: 56px 90px;">
+    <p class="eyebrow" style="margin-bottom:22px">Assistant Officer, Information Technology · City Bank PLC</p>
+    <h1><span class="word">Mahbub</span> <span class="word">Roujen</span></h1>
+    <p class="role-line">
+      <span>I work as a</span>
+      <span class="cycle" id="cycle">System Administrator</span><span class="caret" aria-hidden="true"></span>
+    </p>
+    <p class="sub">I keep high-availability banking systems running across the data centre and near-DR site, from Linux servers and payment switches to the network and monitoring underneath them. I also build IoT and programming projects on the side.</p>
+    <div class="cta">
+      <a class="btn primary" href="#work">See the work</a>
+      <a class="btn" href="https://www.linkedin.com/in/mahbub-roujen/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="stats rv" id="stats">
+    <div class="stat"><div class="num"><span data-count="19">19</span><em>mo</em></div><div class="lbl">in banking IT operations</div></div>
+    <div class="stat"><div class="num"><span data-count="4">4</span></div><div class="lbl">card networks monitored: VISA, Mastercard, AMEX, CUP</div></div>
+    <div class="stat"><div class="num"><span data-count="5">5</span></div><div class="lbl">certifications</div></div>
+    <div class="stat"><div class="num"><span>24</span><em>/7</em></div><div class="lbl">operational coverage through roster duty</div></div>
+  </div>
+
+  <section class="block" id="about">
+    <div class="about">
+      <div class="rv">
+        <p class="eyebrow">About</p>
+        <h2 style="font-family:var(--display);font-size:clamp(1.8rem,4vw,2.6rem);font-weight:600;letter-spacing:-.02em;margin:10px 0 18px">A CSE graduate who likes systems that stay up.</h2>
+        <p class="lead">I studied Computer Science and Engineering at Ahsanullah University of Science and Technology. Since May 2025 I have worked in the IT department of City Bank, where I help keep core banking, card processing, and payment switching running. Before that I did asset verification at Daraz.</p>
+        <p style="margin-top:16px;color:var(--muted)">My interests are IoT, system administration, and programming. I like solving real problems with technology, and I document my work so the next person can carry it on.</p>
+      </div>
+      <div class="rv">
+        <p class="eyebrow" style="margin-bottom:14px">Top skills</p>
+        <div class="tags">
+          <span class="tag">Amazon EC2</span><span class="tag">Cloud computing</span><span class="tag">Cloud-native architecture</span>
+          <span class="tag">Linux (RHEL)</span><span class="tag">System admin</span><span class="tag">Networking</span>
+          <span class="tag">Incident management</span><span class="tag">DC / DR operations</span><span class="tag">IoT</span>
+          <span class="tag">Programming</span><span class="tag">IT asset management</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="work">
+    <div class="sec-head rv"><div><p class="eyebrow">Experience</p><h2>Where I work</h2></div></div>
+    <div class="timeline" id="timeline"><div class="fill" id="fill"></div></div>
+  </section>
+
+  <section class="block" id="skills">
+    <div class="sec-head rv"><div><p class="eyebrow">Stack</p><h2>Tools in daily use</h2></div></div>
+    <div class="marquee" aria-label="Skills"><div class="track" id="track"></div></div>
+  </section>
+
+  <section class="block" id="certs">
+    <div class="sec-head rv"><div><p class="eyebrow">Certifications</p><h2>Credentials</h2></div></div>
+    <div class="grid2" id="certs-grid"></div>
+  </section>
+
+  <section class="block" id="education">
+    <div class="sec-head rv"><div><p class="eyebrow">Education</p><h2>Academic path</h2></div></div>
+    <div class="edu rv">
+      <div><h3>Ahsanullah University of Science and Technology</h3><p class="meta">BSc, Computer Science · 2020 – 2024</p></div>
+      <div><h3>Abdul Kader Mollah City College</h3><p class="meta">HSC, Science · 2017 – 2019</p></div>
+      <div><h3>Kishoreganj Govt. Boys' High School</h3><p class="meta">SSC, Science · 2011 – 2017</p></div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Mahbub Roujen · Dhaka, Bangladesh</span>
+    <a href="https://www.linkedin.com/in/mahbub-roujen/" target="_blank" rel="noopener">linkedin.com/in/mahbub-roujen</a>
+  </footer>
+</div>
+
+<script>
+(function () {
+  document.documentElement.classList.add('js');
+
+  // Theme toggle: cycles system, dark, light and remembers only for this viewer.
+  var btn = document.getElementById('themeBtn');
+  var modes = ['system', 'dark', 'light'];
+  var mi = 0;
+  btn.addEventListener('click', function () {
+    mi = (mi + 1) % modes.length;
+    var m = modes[mi];
+    if (m === 'system') document.documentElement.removeAttribute('data-theme');
+    else document.documentElement.setAttribute('data-theme', m);
+    btn.textContent = m;
+  });
+
+  // Rotating role text.
+  var roles = ['System Administrator', 'IoT Enthusiast', 'Programmer', 'CSE Graduate'];
+  var cyc = document.getElementById('cycle');
+  var ri = 0, ci = roles[0].length;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function typeLoop() {
+    var word = roles[ri];
+    if (!reduce) {
+      if (ci < word.length) { ci++; }
+      else if (!typeLoop.hold) { typeLoop.hold = 1800; }
+    }
+    cyc.textContent = word.slice(0, ci);
+    if (!reduce) {
+      if (ci === word.length) {
+        setTimeout(function () {
+          var del = setInterval(function () {
+            ci--; cyc.textContent = word.slice(0, ci);
+            if (ci <= 0) { clearInterval(del); ri = (ri + 1) % roles.length; setTimeout(function () { step(); }, 200); }
+          }, 40);
+        }, 1800);
+        return;
+      }
+      setTimeout(step, 70);
+    }
+  }
+  function step() { typeLoop(); }
+  if (!reduce) setTimeout(step, 1000);
+
+  // Spotlight follows the pointer over the hero.
+  var hero = document.getElementById('top');
+  hero.addEventListener('pointermove', function (e) {
+    var r = hero.getBoundingClientRect();
+    hero.querySelector('.spot').style.setProperty('--mx', (e.clientX - r.left) + 'px');
+    hero.querySelector('.spot').style.setProperty('--my', (e.clientY - r.top) + 'px');
+  });
+
+  // Network canvas: nodes drift, link when close, pushed gently by the pointer.
+  var cv = document.getElementById('net');
+  var cx = cv.getContext('2d');
+  var nodes = [], W = 0, H = 0, mouse = { x: -999, y: -999 }, dpr = Math.min(window.devicePixelRatio || 1, 2);
+  function resize() {
+    var r = hero.getBoundingClientRect();
+    W = r.width; H = r.height;
+    cv.width = W * dpr; cv.height = H * dpr;
+    cx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    var n = Math.max(24, Math.min(90, Math.round(W * H / 14000)));
+    nodes = [];
+    for (var i = 0; i < n; i++) nodes.push({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .3, vy: (Math.random() - .5) * .3 });
+  }
+  function ink() { return getComputedStyle(document.documentElement).getPropertyValue('--accent-2').trim() || '#6fb8d9'; }
+  var accentAlt = function () { return getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#f2a93b'; };
+  function frame() {
+    cx.clearRect(0, 0, W, H);
+    var c = ink(), a = accentAlt();
+    for (var i = 0; i < nodes.length; i++) {
+      var p = nodes[i];
+      if (!reduce) {
+        var dx = p.x - mouse.x, dy = p.y - mouse.y, d2 = dx * dx + dy * dy;
+        if (d2 < 16000) { p.vx += dx / 9000; p.vy += dy / 9000; }
+        p.x += p.vx; p.y += p.vy;
+        p.vx *= .995; p.vy *= .995;
+        if (p.x < 0 || p.x > W) p.vx *= -1;
+        if (p.y < 0 || p.y > H) p.vy *= -1;
+      }
+      for (var j = i + 1; j < nodes.length; j++) {
+        var q = nodes[j], ex = p.x - q.x, ey = p.y - q.y, dist = Math.sqrt(ex * ex + ey * ey);
+        if (dist < 150) {
+          cx.globalAlpha = (1 - dist / 150) * .35;
+          cx.strokeStyle = c; cx.lineWidth = 1;
+          cx.beginPath(); cx.moveTo(p.x, p.y); cx.lineTo(q.x, q.y); cx.stroke();
+        }
+      }
+      cx.globalAlpha = .75;
+      cx.fillStyle = i % 9 === 0 ? a : c;
+      cx.beginPath(); cx.arc(p.x, p.y, i % 9 === 0 ? 2.6 : 1.6, 0, Math.PI * 2); cx.fill();
+    }
+    cx.globalAlpha = 1;
+    if (!reduce) requestAnimationFrame(frame);
+  }
+  hero.addEventListener('pointermove', function (e) {
+    var r = hero.getBoundingClientRect();
+    mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top;
+  });
+  hero.addEventListener('pointerleave', function () { mouse.x = mouse.y = -999; });
+  window.addEventListener('resize', function () { resize(); });
+  resize(); frame();
+
+  // Experience data, rendered so it is easy to extend.
+  var jobs = [
+    {
+      when: 'May 2025 – Present · 1 yr 7 mo', role: 'Assistant Officer, Information Technology', org: 'City Bank · Dhaka',
+      groups: [
+        { h: 'Data centre & infrastructure', items: ['Keep the DC and Near DC running for critical banking services', 'Watch servers, storage, network links, logs and performance', 'Maintain 24/7 coverage through roster duty'] },
+        { h: 'Banking & payment operations', items: ['Run day-end for core banking, card processing and switching', 'Monitor VISA, Mastercard, AMEX and CUP payment flows', 'Run CMS cycle statements and Citytouch++, MFS and NPSB monitoring'] },
+        { h: 'Incidents & support', items: ['First-line troubleshooting and resolution', 'Escalate critical incidents and coordinate with local and international vendors', 'Handle Citytouch++ restarts to keep service available'] },
+        { h: 'Security, backup & compliance', items: ['Hold IT security controls across DC and NDC', 'Support disaster recovery and preventive maintenance', 'Prepare audit-ready documentation and reports'] }
+      ]
+    },
+    {
+      when: 'Feb 2025 – May 2025 · 4 mo', role: 'IT Associate', org: 'Daraz · Banani, Dhaka',
+      groups: [
+        { h: 'Asset verification', items: ['Physically verify computers, network devices and peripherals', 'Cross-check records and flag missing or unregistered assets'] },
+        { h: 'Data & compliance', items: ['Keep serial numbers, locations and assigned users accurate', 'Generate audit reports with recommendations'] },
+        { h: 'Process improvement', items: ['Work with cross-functional teams to tighten asset tracking', 'Assist with tagging, reconciliation and equipment handling'] }
+      ]
+    }
+  ];
+  var tl = document.getElementById('timeline');
+  jobs.forEach(function (j) {
+    var el = document.createElement('article');
+    el.className = 'job rv';
+    el.innerHTML = '<p class="meta"></p><h3></h3><p class="org"></p><div class="groups"></div>';
+    el.querySelector('.meta').textContent = j.when;
+    el.querySelector('h3').textContent = j.role;
+    el.querySelector('.org').textContent = j.org;
+    var g = el.querySelector('.groups');
+    j.groups.forEach(function (grp, gi) {
+      var c = document.createElement('div');
+      c.className = 'card';
+      c.innerHTML = '<span class="n"></span><h4></h4><ul></ul>';
+      c.querySelector('.n').textContent = String(gi + 1).padStart(2, '0');
+      c.querySelector('h4').textContent = grp.h;
+      var ul = c.querySelector('ul');
+      grp.items.forEach(function (t) { var li = document.createElement('li'); li.textContent = t; ul.appendChild(li); });
+      g.appendChild(c);
+    });
+    tl.appendChild(el);
+  });
+
+  // Tilt on pointer.
+  document.querySelectorAll('.card').forEach(function (c) {
+    c.addEventListener('pointermove', function (e) {
+      if (reduce) return;
+      var r = c.getBoundingClientRect();
+      var px = (e.clientX - r.left) / r.width - .5, py = (e.clientY - r.top) / r.height - .5;
+      c.style.setProperty('--ry', (px * 6).toFixed(2) + 'deg');
+      c.style.setProperty('--rx', (-py * 6).toFixed(2) + 'deg');
+    });
+    c.addEventListener('pointerleave', function () { c.style.setProperty('--rx', '0deg'); c.style.setProperty('--ry', '0deg'); });
+  });
+
+  // Skills marquee: duplicated so the loop is seamless.
+  var skills = ['Linux (RHEL)', 'AWS', 'Amazon EC2', 'Networking', 'Bash', 'Core banking', 'Payment switching', 'DC / DR', 'IoT', 'System admin', 'Incident management', 'Cisco networking', 'IT asset management', 'Programming'];
+  var track = document.getElementById('track');
+  [0, 1].forEach(function () {
+    skills.forEach(function (s, i) {
+      var p = document.createElement('span');
+      p.className = 'pill' + (i % 4 === 0 ? ' hot' : '');
+      p.textContent = s;
+      track.appendChild(p);
+    });
+  });
+
+  // Certifications.
+  var certs = [
+    { k: 'AWS', t: 'AWS Cloud Practitioner Essentials', s: 'Amazon Web Services' },
+    { k: 'CNA', t: 'Cisco Networking Academy', s: 'Networking' },
+    { k: 'CNA', t: 'Cisco Networking Academy', s: 'Networking' },
+    { k: 'SYS', t: 'System Administration and IT Infrastructure Services', s: 'Systems' },
+    { k: 'RHEL', t: 'Fundamentals of Red Hat Enterprise Linux', s: 'Linux' }
+  ];
+  var cg = document.getElementById('certs-grid');
+  certs.forEach(function (c) {
+    var d = document.createElement('div');
+    d.className = 'cert rv';
+    d.innerHTML = '<div class="badge"></div><div><strong></strong><span></span></div>';
+    d.querySelector('.badge').textContent = c.k;
+    d.querySelector('strong').textContent = c.t;
+    d.querySelector('span').textContent = c.s;
+    cg.appendChild(d);
+  });
+
+  // Reveal on scroll, with a visible fallback.
+  var rv = document.querySelectorAll('.rv');
+  if ('IntersectionObserver' in window && !reduce) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: .12 });
+    rv.forEach(function (el) { io.observe(el); });
+  } else {
+    rv.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  // Count-up numbers.
+  var counted = false;
+  var sEl = document.getElementById('stats');
+  function countUp() {
+    if (counted || reduce) return; counted = true;
+    document.querySelectorAll('[data-count]').forEach(function (n) {
+      var target = +n.getAttribute('data-count'), t0 = performance.now();
+      (function tick(t) {
+        var k = Math.min(1, (t - t0) / 1100), v = Math.round(target * (1 - Math.pow(1 - k, 3)));
+        n.textContent = v;
+        if (k < 1) requestAnimationFrame(tick);
+      })(t0);
+    });
+  }
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es, o) { if (es[0].isIntersecting) { countUp(); o.disconnect(); } }, { threshold: .5 }).observe(sEl);
+  }
+
+  // Timeline progress line.
+  var fill = document.getElementById('fill');
+  function progress() {
+    var r = tl.getBoundingClientRect();
+    var vh = window.innerHeight;
+    var p = Math.min(1, Math.max(0, (vh * .65 - r.top) / (r.height || 1)));
+    tl.style.setProperty('--p', p.toFixed(3));
+    fill.style.height = (p * 100).toFixed(1) + '%';
+  }
+  if (!reduce) { window.addEventListener('scroll', progress, { passive: true }); }
+  progress();
+})();
+</script>
+
+</body></html>
